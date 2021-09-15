@@ -16,8 +16,7 @@ public class JKMain extends ClassLoader{
 
     public static void main(String[] args) {
         try {
-//            FileInputStream fileInputStream = FileUtils.openInputStream(new File(String.format("%s/%s", System.getProperty("user.dir"), "src/main/resources/Hello.xlass")));
-            FileInputStream fileInputStream = FileUtils.openInputStream(new File("C:\\Users\\ELUOMIK\\Desktop\\ELUOMIK\\workDocuments\\IdeaProjects\\JKSJ\\Java\\Week01\\src\\main\\resources\\Hello.xlass"));
+            FileInputStream fileInputStream = FileUtils.openInputStream(new File(String.format("%s/%s", System.getProperty("user.dir"), "src/main/resources/Hello.xlass")));
             ByteArrayOutputStream bos = new ByteArrayOutputStream(1000);
             byte[] b = new byte[1000];
             int n;
