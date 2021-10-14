@@ -1,6 +1,7 @@
 import com.config.LoadBeanFromAnnotation;
-import com.config.LoadBeanFromJavaConfig;
+import com.config.javaconfig.LoadBeanFromJavaConfig;
 import com.config.LoadBeanFromXmlFiles;
+import com.config.javaconfig.javaConfig;
 import com.pojo.CityInfo;
 import com.pojo.Fruit;
 import com.pojo.PeopleInfo;
@@ -49,6 +50,16 @@ public class BeanLoadTest {
     public void testCase_LoadSpringBeanFromJavaConfig() {
         applicationContext = new AnnotationConfigApplicationContext(LoadBeanFromJavaConfig.class);
         CityInfo cityInfo = applicationContext.getBean(CityInfo.class);
+        System.out.println(cityInfo);
+    }
+
+    /**
+     * 通过加载多个@Configuration和文件以及@Bean的期别名来加载
+     */
+    @Test
+    public void testCase_LoadSpringBeanFromMoreJavaConfig() {
+        applicationContext = new AnnotationConfigApplicationContext(javaConfig.class);
+        CityInfo cityInfo = applicationContext.getBean("cityHangzhou", CityInfo.class);
         System.out.println(cityInfo);
     }
 }
