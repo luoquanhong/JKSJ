@@ -13,6 +13,7 @@ public class BeanLoadTest {
 
     ApplicationContext applicationContext = null;
 
+    final static String PACKAGE_NAME = "com";
 
     /**
      * 通过加载xml配置文件方式来获取bean
@@ -35,7 +36,7 @@ public class BeanLoadTest {
     @Test
     public void testCase_LoadSpringBeanFromAnnotation() {
         LoadBeanFromAnnotation loadBeanFromAnnotation = new LoadBeanFromAnnotation();
-        applicationContext = loadBeanFromAnnotation.loadBeanFromXmlAnnotation("com");
+        applicationContext = loadBeanFromAnnotation.loadBeanFromXmlAnnotation(PACKAGE_NAME);
         PeopleInfo peopleInfo = applicationContext.getBean(PeopleInfo.class);
         peopleInfo.setPeopleAge(12);
         peopleInfo.setPeopleName("Mike");
