@@ -9,4 +9,20 @@
         <property name="fruitWeight" value="10"></property>
         <property name="fruitPrice" value="200"></property>
     </bean>
+
+    <!-- h2数据库 -->
+    <bean id="h2Driver" class="org.h2.jdbcx.JdbcConnectionPool" destroy-method="dispose">
+        <constructor-arg>
+            <bean class="org.h2.jdbcx.JdbcDataSource">
+                <!-- 内存模式 -->
+                <property name="URL" value="jdbc:h2:mem:test"/>
+                <!-- 文件模式 -->
+                <!-- <property name="URL" value="jdbc:h2:testRestDB" /> -->
+                <property name="user" value="sa"/>
+                <property name="password" value="sa"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+
+
 </beans>

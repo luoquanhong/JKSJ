@@ -1,4 +1,3 @@
-import com.pojo.CityInfo;
 import com.pojo.Student;
 import com.starter.CustomStarter;
 import org.junit.Test;
@@ -21,5 +20,6 @@ public class CustomStarterTest {
         student.setBeanName("testCase_CustomStarter_Case01");
         System.out.println(student);
     }
+
 
 }
