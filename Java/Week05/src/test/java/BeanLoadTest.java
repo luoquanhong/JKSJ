@@ -2,14 +2,19 @@ import com.config.LoadBeanFromAnnotation;
 import com.config.javaconfig.LoadBeanFromJavaConfig;
 import com.config.LoadBeanFromXmlFiles;
 import com.config.javaconfig.javaConfig;
-import com.pojo.CityInfo;
-import com.pojo.Fruit;
-import com.pojo.PeopleInfo;
+import com.pojo.*;
+import com.service.impl.School;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.Arrays;
+
 public class BeanLoadTest {
+
+    /**
+     * 这是第一道必做题的作业处
+     */
 
     ApplicationContext applicationContext = null;
 
@@ -62,5 +67,22 @@ public class BeanLoadTest {
         applicationContext = new AnnotationConfigApplicationContext(javaConfig.class);
         CityInfo cityInfo = applicationContext.getBean("cityHangzhou", CityInfo.class);
         System.out.println(cityInfo);
+    }
+
+    @Test
+    public void testCase_LoadSpringBeanFromKlass_Student_School() {
+        applicationContext = new AnnotationConfigApplicationContext(javaConfig.class);
+        Student student = applicationContext.getBean(Student.class);
+        student.setName("John");
+        student.setId(123);
+        student.setBeanName("studentBean");
+        System.out.println(student);
+        Klass klass = applicationContext.getBean(Klass.class);
+        klass.setStudents(Arrays.asList(student));
+        System.out.println(klass);
+        School school = applicationContext.getBean(School.class);
+        school.setStudent100(student);
+        school.setClass1(klass);
+        System.out.println(school);
     }
 }
