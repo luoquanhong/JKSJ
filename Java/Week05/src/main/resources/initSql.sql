@@ -1,0 +1,55 @@
+CREATE TABLE student
+(Sno    varchar(20)    NOT NULL,
+ Sname  varchar(20)    NOT NULL,
+ sex   varchar(20)    NOT NULL,
+ age   INT            NOT NULL,
+ dept  varchar(20)    NOT NULL,
+ PRIMARY KEY (Sno)
+);
+
+CREATE TABLE course
+(Cno    varchar(20)    NOT NULL,
+ Cname  varchar(20)    NOT NULL,
+ hours VARCHAR(20)    NOT NULL,
+ PRIMARY KEY (Cno)
+);
+
+CREATE TABLE SC
+(Sno    varchar(20)    NOT NULL,
+ Cno    varchar(20)    NOT NULL,
+ grade  INT    ,
+ PRIMARY KEY (Sno,Cno)
+);
+
+INSERT INTO student VALUES ('9512101','李勇','男',19,'计算机系');
+INSERT INTO student VALUES ('9512102','刘晨','男',20,'计算机系');
+INSERT INTO student VALUES ('9512103','王敏','女',20,'计算机系');
+INSERT INTO student VALUES ('9521101','张立','男',22,'信息系');
+INSERT INTO student VALUES ('9521102','吴宾','女',21,'信息系');
+INSERT INTO student VALUES ('9521103','张海','男',20,'信息系');
+INSERT INTO student VALUES ('9531101','钱小力','女',18,'数学系');
+INSERT INTO student VALUES ('9531102','王大力','男',19,'数学系');
+
+
+INSERT INTO course VALUES ('C01','计算机文化学','70');
+INSERT INTO course VALUES ('C02','VB','90');
+INSERT INTO course VALUES ('C03','计算机网络','80');
+INSERT INTO course VALUES ('C04','数据库基础','108');
+INSERT INTO course VALUES ('C05','高等数学','180');
+INSERT INTO course VALUES ('C06','数据结构','72');
+
+
+INSERT INTO SC VALUES ('9512101','C01',90);
+INSERT INTO SC VALUES ('9512101','C02',86);
+INSERT INTO SC VALUES ('9512101','C06',NULL);
+INSERT INTO SC VALUES ('9512102','C02',78);
+INSERT INTO SC VALUES ('9512102','C04',66);
+INSERT INTO SC VALUES ('9521102','C01',82);
+INSERT INTO SC VALUES ('9521102','C02',75);
+INSERT INTO SC VALUES ('9521102','C04',92);
+INSERT INTO SC VALUES ('9521102','C05',50);
+INSERT INTO SC VALUES ('9521103','C02',68);
+INSERT INTO SC VALUES ('9521103','C06',NULL);
+INSERT INTO SC VALUES ('9531101','C01',80);
+INSERT INTO SC VALUES ('9531101','C05',95);
+INSERT INTO SC VALUES ('9531102','C05',85);

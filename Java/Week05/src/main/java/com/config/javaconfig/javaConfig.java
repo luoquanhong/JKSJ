@@ -1,16 +1,21 @@
 package com.config.javaconfig;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.mysql.cj.jdbc.MysqlDataSource;
 import com.pojo.CityInfo;
 import com.pojo.Klass;
 import com.pojo.Student;
 import com.service.ISchool;
 import com.service.impl.School;
+import com.zaxxer.hikari.HikariDataSource;
 import org.h2.jdbcx.JdbcConnectionPool;
 import org.h2.jdbcx.JdbcDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 
 @Configuration
@@ -49,9 +54,16 @@ public class javaConfig {
     }
 
     @Bean
-    public DruidDataSource getMysqlDataSource() {
-        DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setUrl(mysqlUrl);
+    public Connection getOriginJDBC() throws SQLException {
+        Connection connection = DriverManager.getConnection(mysqlUrl, mysqlUser, mysqlPassword);
+        connection.setAutoCommit(false);
+        return connection;
+    }
+
+    @Bean
+    public HikariDataSource getMysqlDataSourceFromHikari() {
+        HikariDataSource dataSource = new HikariDataSource();
+        dataSource.setJdbcUrl(mysqlUrl);
         dataSource.setUsername(mysqlUser);
         dataSource.setPassword(mysqlPassword);
         return dataSource;
