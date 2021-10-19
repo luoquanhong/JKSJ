@@ -10,6 +10,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(classes = {CustomStarter.class})
 public class CustomStarterTest {
 
+    /**
+     * 配置starter
+     */
+
     @Autowired
     private Student student;
 
