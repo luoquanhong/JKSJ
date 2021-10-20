@@ -41,16 +41,6 @@ public class javaConfig {
     }
 
     @Bean
-    public JdbcConnectionPool ConnectH2DataBaseINfo(){
-        JdbcDataSource h2DataBaseInfo = new JdbcDataSource();
-        h2DataBaseInfo.setPassword("sa");
-        h2DataBaseInfo.setUser("sa");
-        h2DataBaseInfo.setURL("jdbc:h2:mem:test");
-        JdbcConnectionPool jdbcConnectionPool = JdbcConnectionPool.create(h2DataBaseInfo);
-        return jdbcConnectionPool;
-    }
-
-    @Bean
     public Connection getOriginJDBC() throws SQLException {
         Connection connection = DriverManager.getConnection(mysqlUrl, mysqlUser, mysqlPassword);
         connection.setAutoCommit(false);

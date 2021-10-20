@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mappers.SCMapper">
+
+    <resultMap id="BaseResultMap" type="com.entity.SC">
+        <result column="Sno" jdbcType="VARCHAR" property="学号"/>
+        <result column="Cno" jdbcType="VARCHAR" property="Cno"/>
+        <result column="grade" jdbcType="INTEGER" property="成绩"/>
+    </resultMap>
+
+    <select id="findAllData" resultType="com.entity.SC">
+        select * from SC
+    </select>
+</mapper>
