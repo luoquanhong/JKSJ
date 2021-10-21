@@ -52,7 +52,6 @@ public class JDBCUtils {
         int flag;
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         flag = preparedStatement.executeUpdate();
-        connection.close();
         return flag;
     }
 

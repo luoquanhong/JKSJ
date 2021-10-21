@@ -66,7 +66,7 @@ public class SpringAndJdbcTest {
     public void testCreateDataFromJDBC() {
         int result = 0;
         try {
-            result = jdbcUtils.executeSql(connection, "INSERT INTO SC (Sno, Cno, grade) VALUES (\"666759\",\"C103\",7123)");
+            result = jdbcUtils.executeSql(connection, "INSERT INTO SC (Sno, Cno, grade) VALUES (\"666789\",\"CA03\",8000)");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -74,12 +74,12 @@ public class SpringAndJdbcTest {
     }
 
     /**
-     * 使用原生jdbc接口连接池去更新数据
+     * 使用原生jdbc接口连接池去更新数据，并且带上提交的事务
      */
     @Test
     public void testUpdateDataFromJDBC() {
         int result = 0;
-        result = jdbcUtils.executeSqlWithCommitTransaction(connection, "UPDATE SC SET grade=1900 WHERE Cno=\"A01\"");
+        result = jdbcUtils.executeSqlWithCommitTransaction(connection, "UPDATE SC SET grade=2060 WHERE Cno= \"A01\"");
         System.out.println("the result is: " + result);
     }
 
